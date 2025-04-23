@@ -3,20 +3,22 @@
 ' It handles the video playback, state changes, and visibility changes.
 
 sub ShowVideoScreen(content as Object, itemIndex as Integer)
-    m.videoPlayer = CreateObject("roSGNode", "Video")
     child = content.GetChild(itemIndex)
-    childrenClone = []
-    childrenClone.Push(child.Clone(false))
+    if child.url <> ""
+        m.videoPlayer = CreateObject("roSGNode", "Video")
+        childrenClone = []
+        childrenClone.Push(child.Clone(false))
 
-    node = CreateObject("roSGNode", "ContentNode")
-    node.Update({ children: childrenClone }, true)
-    m.videoPlayer.content = node
-    m.videoPlayer.contentIsPlaylist = true
-    ShowScreen(m.videoPlayer)
+        node = CreateObject("roSGNode", "ContentNode")
+        node.Update({ children: childrenClone }, true)
+        m.videoPlayer.content = node
+        m.videoPlayer.contentIsPlaylist = true
+        ShowScreen(m.videoPlayer)
 
-    m.videoPlayer.control = "play"
-    m.videoPlayer.ObserveField("state", "OnVideoPlayerStateChange")
-    m.videoPlayer.ObserveField("visible", "OnVideoVisibleChange")
+        m.videoPlayer.control = "play"
+        m.videoPlayer.ObserveField("state", "OnVideoPlayerStateChange")
+        m.videoPlayer.ObserveField("visible", "OnVideoVisibleChange")
+    end if
 end sub
 
 sub OnVideoPlayerStateChange()
@@ -24,7 +26,7 @@ sub OnVideoPlayerStateChange()
     if state = "error"
         errorCode = m.videoPlayer.errorCode
         errorMsg = m.videoPlayer.errorMsg
-        print "Video Player Error Code: " + errorCode
+        print "Video Player Error Code: " + errorCode.ToStr()
         print "Error Message: " + errorMsg
     end if
     ' close video screen in case of error or end of playback
