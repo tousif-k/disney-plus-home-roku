@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="DetailsModal" extends="Group" initialFocus="Buttons" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <script type="text/brightscript" uri="DetailsModal.brs" />
+    <script type="text/brightscript" uri="pkg:/source/utils.brs" />
+    <interface>
+        <field id="content" type="node" />
+        <field id="jumpToItem" type="integer" onChange="OnJumpToItem" value="0" alwaysNotify="true" />
+        <field id="itemFocused" type="integer" alwaysNotify="true" />     
+        <field id="buttonSelected" type="integer" alias="buttons.itemSelected" />
+    </interface>
+    <children>
+        <LayoutGroup
+            translation="[1166, 220]"
+            layoutDirection="horiz"
+            horizAlignment="right"
+            itemSpacings="[40]">
+            <LayoutGroup
+                itemSpacings="[14, 10]"
+                layoutDirection="vert">
+                <Rectangle
+                    width="357"
+                    height="201"
+                    color="0xFFFFFF00">
+                    <Poster
+                        id="posterDetails"
+                        width="357"
+                        loadWidth="357"
+                        height="201"
+                        loadHeight="201"
+                        loadDisplayMode="scaleToFit"
+                    />
+                </Rectangle>
+                <Label
+                    id="titleLabel"
+                    width="357"
+                    wrap="true"
+                    maxLines="2"
+                    horizAlign="right"
+                    font="font:LargeBoldSystemFont"
+                />
+                <Label
+                    id="timeLabel"
+                    width="357"
+                    wrap="false"
+                    horizAlign="right"
+                />
+            </LayoutGroup>
+            <Group>
+                <LayoutGroup
+                    translation="[0, 220]"
+                    itemSpacings="[10]">
+                    <Label
+                        id="ratingLabel"
+                        wrap="true"
+                        width="593"
+                        font="font:MediumBoldSystemFont"
+                    />
+                    <Label
+                        id="ratingDescLabel"
+                        wrap="true"
+                        width="593"
+                    />
+                    <Label
+                        id="releaseLabel"
+                        wrap="false"
+                        width="520"
+                        font="font:MediumBoldSystemFont"
+                    />
+                </LayoutGroup>
+                <LabelList
+                    id="buttons"
+                    numRows="1"
+                    itemSpacing="[0,10]"
+                    itemSize="[593, 48]"
+                    translation="[0, 440]"
+                    visible="false"
+                />
+            </Group>
+        </LayoutGroup>
+    </children>
+</component>

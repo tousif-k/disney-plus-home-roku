@@ -1,0 +1,14 @@
+# Channel Details
+title=Disney+ Home Page
+major_version=1
+minor_version=0
+build_version=1
+
+# Channel Assets
+mm_icon_focus_hd=pkg:/images/logo.png
+
+# Splash Screen
+splash_screen_hd=pkg:/images/splashscreen.png
+
+# Resolution
+ui_resolution=hd

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="MainScene" extends="Scene">
+    <script type="text/brightscript" uri="MainScene.brs" />
+    <script type="text/brightscript" uri="Logic/ScreenStackLogic.brs" />
+    <script type="text/brightscript" uri="Logic/ContentTaskLogic.brs" />
+    <script type="text/brightscript" uri="Logic/HomePageLogic.brs" />
+    <script type="text/brightscript" uri="Logic/VideoPlayerLogic.brs" />
+    <script type="text/brightscript" uri="Logic/DetailsModalLogic.brs" />
+    <children>
+         <Overhang
+            id="overhang"
+            showOptions="false"
+            showClock="false"
+            logoUri="pkg:/images/disney_plus_overhang_logo.png"
+            translation="[0,20]"
+        />
+        <Label
+            id="loadingIndicator"
+            text="Loading..."
+            width="1280"
+            height="720"
+            translation="[0, 0]"
+            horizAlign="center"
+            vertAlign="center"
+            visible="false"
+            font="font:MediumBoldSystemFont"
+        />
+    </children>
+</component>
