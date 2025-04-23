@@ -24,7 +24,7 @@ sub OnVideoPlayerStateChange()
     if state = "error"
         errorCode = m.videoPlayer.errorCode
         errorMsg = m.videoPlayer.errorMsg
-        print "Video Player Error Code: " + errorCode
+        print "Video Player Error Code: " + errorCode.ToStr()
         print "Error Message: " + errorMsg
     end if
     ' close video screen in case of error or end of playback
